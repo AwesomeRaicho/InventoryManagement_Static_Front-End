@@ -1,0 +1,29 @@
+body {
+}
+#main-container {
+  min-height: 100vh;
+  position: relative;
+}
+
+#add-new-container {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: rgb(0, 149, 255);
+  box-shadow: 4px 4px 8px gray;
+}
+#add-new-link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: white;
+}
