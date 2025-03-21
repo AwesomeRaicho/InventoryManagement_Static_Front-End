@@ -21,7 +21,7 @@ window.onload = async function () {
         propertyDiv.classList.add("mb-1");
         propertyDiv.style = `display: flex; align-items: center;`;
 
-        propertyDiv.innerHTML = `<a href="../PropertyInstance/PropertyInstance.html?id=${result.propertyTypes[i].id}" class="fs-4 ps-2" style="text-decoration: none; width: 100%">${result.propertyTypes[i].name}</a>`;
+        propertyDiv.innerHTML = `<a href="../PropertyInstance/PropertyInstance.html?id=${result.propertyTypes[i].id}&propertyname=${result.propertyTypes[i].name}" class="fs-4 ps-2" style="text-decoration: none; width: 100%">${result.propertyTypes[i].name}</a>`;
         let btnContainer = document.createElement("div");
         btnContainer.style = "display: flex";
         btnContainer.innerHTML = `
@@ -34,6 +34,8 @@ window.onload = async function () {
         document
           .getElementById(`edit-btn${result.propertyTypes[i].id}`)
           .addEventListener("click", async (e) => {
+            console.log("clicked");
+
             let propertyId = e.target.dataset.propertyTypeId;
             let propertyName = e.target.dataset.propertyTypeName;
             let concurrencyStamp = e.target.dataset.concurrencyStamp;
@@ -42,6 +44,7 @@ window.onload = async function () {
         document
           .getElementById(`del-btn${result.propertyTypes[i].id}`)
           .addEventListener("click", async (e) => {
+            console.log("clicked");
             let propertyId = e.target.dataset.propertyTypeId;
             let propertyName = e.target.dataset.propertyTypeName;
             e.target.href = `/PropertyType/PropertyTypeDelete.html?PropertyTypeId=${propertyId}&PropertyTypeName=${propertyName}`;

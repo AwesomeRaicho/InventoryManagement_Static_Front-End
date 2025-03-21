@@ -26,6 +26,7 @@ deleteBtn.addEventListener("click", async (e) => {
       const result = await response.json();
 
       console.log(result);
+      window.location.href = "/PropertyType/PropertyType.html";
     }
   } catch (error) {
     console.log(error);

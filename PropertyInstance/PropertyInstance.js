@@ -1,7 +1,14 @@
 window.onload = async function () {
+  //Back button
+  let backBtn = document.getElementById("back-menu-link");
+
   const urlParams = new URLSearchParams(window.location.search);
 
   const id = urlParams.get("id");
+  const propertyName = urlParams.get("propertyname");
+
+  console.log(propertyName);
+
   const instanceList = document.getElementById("property-instance-list");
 
   const addLink = document.getElementById("add-new-link");
@@ -19,6 +26,14 @@ window.onload = async function () {
 
     if (response.ok) {
       const result = await response.json();
+      if (
+        result.property_Instances.length == 0 ||
+        result.property_Instances == null
+      ) {
+        let none = document.createElement("h3");
+        none.innerHTML = `No instances for <span class="text-success">"${propertyName}"</span>`;
+        instanceList.appendChild(none);
+      }
 
       for (let i = 0; i < result.property_Instances.length; i++) {
         let instanceDiv = document.createElement("div");
@@ -60,7 +75,7 @@ window.onload = async function () {
               const result = await response.json();
               if (response.ok) {
                 console.log(result);
-                window.history.back();
+                location.reload(true);
               } else {
                 console.log(result);
                 let erroList = document.getElementById("error-list");
