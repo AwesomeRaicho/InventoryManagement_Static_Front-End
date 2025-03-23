@@ -1,18 +1,8 @@
 window.onload = async function () {
-  //Back button
-  let backBtn = document.getElementById("back-menu-link");
-
   const urlParams = new URLSearchParams(window.location.search);
 
   const id = urlParams.get("id");
   const propertyName = urlParams.get("propertyname");
-
-  console.log(propertyName);
-
-  const instanceList = document.getElementById("property-instance-list");
-
-  const addLink = document.getElementById("add-new-link");
-  addLink.href = `/PropertyInstance/PropertyInstanceCreate.html?id=${id}`;
   try {
     const response = await fetch(
       `https://localhost:7200/api/PropertyInstance/by-property-type?PropertyTypeId=${id}`,
@@ -24,6 +14,26 @@ window.onload = async function () {
       }
     );
 
+    let body = document.getElementById("body");
+    body.innerHTML = "";
+    body.innerHTML = `
+    <h1 class="border p-3 text-white bg-info">${propertyName}</h1>
+    <div
+    id="property-instance-list"
+    class="p-2"
+    style="z-index: 2; margin-bottom: 120px"
+    ></div>
+    <div id="add-new-container">
+    <a id="add-new-link">Add</a>
+    </div>
+    <div id="back-menu-container">
+    <a href="/PropertyType/PropertyType.html" id="back-menu-link">←</a>
+    </div>
+    `;
+    let backBtn = document.getElementById("back-menu-link");
+    const instanceList = document.getElementById("property-instance-list");
+    const addLink = document.getElementById("add-new-link");
+    addLink.href = `/PropertyInstance/PropertyInstanceCreate.html?id=${id}&propertyname=${propertyName}`;
     if (response.ok) {
       const result = await response.json();
       if (

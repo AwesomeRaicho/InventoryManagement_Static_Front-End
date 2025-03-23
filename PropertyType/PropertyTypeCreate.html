@@ -9,13 +9,14 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/style1.css" />
     <title>Property Type</title>
   </head>
   <body>
     <form class="p-4" id="property-type-form">
       <div class="mb-3">
-        <label for="property-type-name" class="form-label"
-          >Property type name</label
+        <label for="property-type-name" class="form-label mb-4 fs-3"
+          >New Property type</label
         >
         <input
           type="text"
@@ -28,6 +29,9 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <div class="p-2"><ul id="error-list" class="text-danger"></ul></div>
+    <div id="back-menu-container">
+      <a id="back-menu-link" href="/PropertyType/PropertyType.html">←</a>
+    </div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

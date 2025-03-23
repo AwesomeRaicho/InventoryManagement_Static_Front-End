@@ -9,14 +9,17 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/style1.css" />
     <title>Create</title>
   </head>
   <body>
     <form class="p-4" id="property-instance-form">
       <div class="mb-3">
-        <label for="property-instance-name" class="form-label"
-          >Property Instance Name</label
-        >
+        <label
+          for="property-instance-name"
+          class="form-label mb-4 fs-3"
+          id="create-label"
+        ></label>
         <input
           type="text"
           class="form-control"
@@ -28,6 +31,9 @@
     </form>
     <div class="p-1">
       <ul class="text-danger" id="error-list"></ul>
+    </div>
+    <div id="back-menu-container">
+      <a id="back-menu-link">←</a>
     </div>
   </body>
   <script

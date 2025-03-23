@@ -10,22 +10,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style1.css" />
-    <title>Property Type Edit</title>
+    <title>Locations</title>
   </head>
-  <body>
-    <h3 class="m-3">Change property type name</h3>
-    <form class="p-4" id="update-form">
-      <div class="mb-3">
-        <label for="" class="form-label">Property type Name</label>
-        <input type="text" class="form-control" id="productTypeNameId" />
+  <body id="body">
+    <div
+      class="d-flex justify-content-center align-items-center fs-3"
+      style="height: 100vh"
+    >
+      <div class="spinner-border text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <div class="p-3">
-      <ul class="text-danger" id="error-list"></ul>
-    </div>
-    <div id="back-menu-container">
-      <a id="back-menu-link" href="/PropertyType/PropertyType.html">←</a>
     </div>
   </body>
   <script
@@ -38,5 +32,5 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"
   ></script>
-  <script src="PropertyTypeEdit.js"></script>
+  <script src="Locations.js"></script>
 </html>

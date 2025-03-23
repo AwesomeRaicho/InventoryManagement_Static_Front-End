@@ -1,6 +1,4 @@
 window.onload = async function () {
-  let listContainer = document.getElementById("property-type-list");
-
   try {
     var response = await fetch("https://localhost:7200/api/PropertyType", {
       method: "Get",
@@ -9,11 +7,28 @@ window.onload = async function () {
       },
     });
 
+    let body = document.getElementById("body");
+    body.innerHTML = "";
+    body.innerHTML = `
+    <h1 class="border p-3 text-white bg-info">Property Types</h1>
+    <div
+    id="property-type-list"
+    class="p-2"
+    style="z-index: 2; margin-bottom: 120px"
+    ></div>
+    <div id="add-new-container">
+    <a href="/PropertyType/PropertyTypeCreate.html" id="add-new-link">Add</a>
+    </div>
+    <div id="back-menu-container">
+    <a href="/Index.html" id="back-menu-link">←</a>
+    </div>
+    `;
+    let listContainer = document.getElementById("property-type-list");
+
     if (response.ok) {
       var result = await response.json();
 
       for (let i = 0; i < result.propertyTypes.length; i++) {
-        console.log(result.propertyTypes[i]);
         var propertyDiv = document.createElement("div");
         propertyDiv.classList.add("border");
         propertyDiv.classList.add("bg-light");
