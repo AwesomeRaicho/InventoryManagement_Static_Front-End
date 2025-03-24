@@ -3,10 +3,6 @@ const id = urlParams.get("id");
 const locationName = urlParams.get("locationName");
 const concurrencyStamp = urlParams.get("concurrencystamp");
 
-console.log(id);
-console.log(locationName);
-console.log(concurrencyStamp);
-
 let locationNameId = document.getElementById("locationNameId");
 locationNameId.value = locationName;
 
