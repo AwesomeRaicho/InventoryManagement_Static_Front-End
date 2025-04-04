@@ -3,8 +3,6 @@ window.onload = async function () {
 
   const productTypeId = urlParams.get("id");
   const productTypeName = urlParams.get("producttypename");
-  console.log(productTypeId);
-  console.log(productTypeName);
 
   const backBtn = document.getElementById("back-menu-link");
   backBtn.href = `/Products/products-by-product-type.html?id=${productTypeId}&producttypename=${productTypeName}`;
@@ -16,7 +14,7 @@ window.onload = async function () {
   //get all available properties for check marking
   const propertiesContainer = document.getElementById("properties-container");
 
-  console.log(propertiesContainer);
+  //console.log(propertiesContainer);
   try {
     const response = await fetch(
       "https://localhost:7200/api/PropertyInstance/all-property-types-and-instances",
@@ -88,7 +86,7 @@ productForm.addEventListener("submit", async (e) => {
   try {
     const urlParams = new URLSearchParams(window.location.search);
     const productTypeId = urlParams.get("id");
-
+    const productTypeName = urlParams.get("producttypename");
     if (!productTypeId) {
       alert("Missing Product Type ID.");
       return;
@@ -116,7 +114,7 @@ productForm.addEventListener("submit", async (e) => {
       propertyIds: selectedProperties.length > 0 ? selectedProperties : null,
     };
 
-    console.log("Submitting Product:", productRequest); // Debugging
+    //console.log("Submitting Product:", productRequest);
 
     // Send fetch request
     const response = await fetch("https://localhost:7200/api/Product", {
@@ -131,7 +129,7 @@ productForm.addEventListener("submit", async (e) => {
       const data = await response.json();
       alert("Product Created Successfully!");
       console.log("Server Response:", data);
-      window.location.href = `ProductCreate.html?id=${productTypeId}&producttypename=${productTypeName}`;
+      window.location.href = `/Products/products-by-product-type.html?id=${productTypeId}&producttypename=${productTypeName}`;
     } else {
       const errorData = await response.json();
       alert(`Error: ${errorData.Error || "Failed to create product"}`);

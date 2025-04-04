@@ -13,11 +13,11 @@ window.onload = async function () {
         },
       }
     );
-    console.log(productTypeName);
+    //console.log(productTypeName);
     let body = document.getElementById("body");
     body.innerHTML = "";
     body.innerHTML = `
-
+<h1 class="border p-3 text-white bg-info">${productTypeName}</h1>
     <div id="main-container">
       <div id="product-list" style="margin-bottom: 150px"></div>
             <div id="back-menu-container">
@@ -51,7 +51,7 @@ window.onload = async function () {
           propsDiv.classList.add("mb-3");
           if (result.product_List[i].properties != null) {
             const dictionary = new Map();
-            console.log(result.product_List[i].properties);
+            //console.log(result.product_List[i].properties);
             result.product_List[i].properties.forEach((element) => {
               //add properties to the map
               if (dictionary.has(element.propertyTypeName)) {
@@ -62,7 +62,7 @@ window.onload = async function () {
               }
             });
             //add the map to the UI
-            console.log(dictionary);
+            //console.log(dictionary);
             dictionary.forEach((v, k) => {
               let propSet = document.createElement("div");
 
@@ -84,18 +84,36 @@ window.onload = async function () {
           }
 
           productDiv.appendChild(propsDiv);
+
+          //product buttons
+          let btnContainers = document.createElement("div");
+
+          //List btn
           let listLink = document.createElement("a");
           listLink.classList.add("fs-6");
           listLink.classList.add("btn");
           listLink.classList.add("btn-primary");
           listLink.href = `../ProductInstances/Product-instances-by-product.html?id=${result.product_List[i].id}`;
           listLink.innerText = "List";
-          productDiv.appendChild(listLink);
+          btnContainers.appendChild(listLink);
+
+          //edit btn
+
+          //delete btn
+          let deleteLink = document.createElement("a");
+          deleteLink.classList.add("fs-6");
+          deleteLink.classList.add("btn");
+          deleteLink.classList.add("btn-danger");
+          deleteLink.href = `ProductDelete.html?id=${result.product_List[i].id}&productName=${result.product_List[i].productName}&productTypeName=${productTypeName}&productTypeId=${id}`;
+          deleteLink.innerText = "Del";
+          btnContainers.appendChild(deleteLink);
+
+          productDiv.appendChild(btnContainers);
 
           listContainer.appendChild(productDiv);
         }
       } else {
-        listContainer.innerHTML = `<h4>Products: 0</h4>`;
+        listContainer.innerHTML = `<h4 class="p-3">Products: 0</h4>`;
       }
     }
   } catch (error) {
