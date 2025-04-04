@@ -24,7 +24,6 @@ window.onload = async function () {
 `;
     if (response.ok) {
       let result = await response.json();
-
       if (result.productTypes.length > 0) {
         for (var i = 0; i < result.productTypes.length; i++) {
           let div = document.createElement("div");
@@ -40,7 +39,7 @@ window.onload = async function () {
           anchor.innerText = `${result.productTypes[i].name}`;
           anchor.classList.add("fs-3");
           anchor.style = "text-decoration: none;";
-          anchor.href = `../Products/products-by-product-type.html?id=${result.productTypes[i].id}`;
+          anchor.href = `../Products/products-by-product-type.html?id=${result.productTypes[i].id}&producttypename=${result.productTypes[i].name}`;
 
           let btnContainer = document.createElement("div");
           btnContainer.classList.add("ms-auto");

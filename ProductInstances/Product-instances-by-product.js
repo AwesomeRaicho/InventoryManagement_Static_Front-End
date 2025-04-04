@@ -12,10 +12,19 @@ window.onload = async function () {
         },
       }
     );
-
+    let body = document.getElementById("body");
+    body.innerHTML = "";
+    body.innerHTML = `
+  <body>
+    <div id="instances-list" class="p-2"></div>
+          <div id="back-menu-container">
+        <a href="/Index.html" id="back-menu-link">←</a>
+      </div>
+  </body>
+`;
     if (response.ok) {
       var result = await response.json();
-      console.log(result.product_instances_by_product);
+      //console.log(result.product_instances_by_product);
       var listContainer = document.getElementById("instances-list");
       var list = result.product_instances_by_product;
 

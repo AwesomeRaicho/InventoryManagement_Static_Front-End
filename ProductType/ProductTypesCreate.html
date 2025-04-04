@@ -9,12 +9,13 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/style1.css" />
     <title>Create new Product Type</title>
   </head>
   <body>
     <form class="p-4 mt-4" id="product-type-form">
       <div class="mb-4">
-        <label for="product-type-name" class="form-label"
+        <label for="product-type-name" class="form-label fs-1"
           >Product type name</label
         >
         <input type="text" class="form-control" id="product-type-name" />
@@ -22,6 +23,9 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <div class="p-2"><ul id="error-list" class="text-danger"></ul></div>
+    <div id="back-menu-container">
+      <a href="/ProductType/ProductTypes.html" id="back-menu-link">←</a>
+    </div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

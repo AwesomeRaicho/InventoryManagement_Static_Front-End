@@ -11,8 +11,15 @@
     />
     <title>Product Instances by product</title>
   </head>
-  <body>
-    <div id="instances-list" class="p-2"></div>
+  <body id="body">
+    <div
+      class="d-flex justify-content-center align-items-center fs-3"
+      style="height: 100vh"
+    >
+      <div class="spinner-border text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
