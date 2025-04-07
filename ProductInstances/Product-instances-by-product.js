@@ -30,7 +30,7 @@ window.onload = async function () {
         <a href="/Products/products-by-product-type.html?id=${productTypeId}&producttypename=${producttypename}" id="back-menu-link">←</a>
       </div>
       <div id="add-new-container">
-        <a href="Product-instances-create.html?productTypeId=${productTypeId}&producttypename=${producttypename}&productId=${id}" id="add-new-link">Add</a>
+        <a href="Product-instances-create.html?productTypeId=${productTypeId}&producttypename=${producttypename}&productId=${id}&productName=${productName}" id="add-new-link">Add</a>
       </div>
   </body>
 `;
@@ -74,6 +74,8 @@ window.onload = async function () {
 
           listContainer.appendChild(instDiv);
         }
+      } else {
+        listContainer.innerHTML = `<h2>Product instances: 0</h2>`;
       }
     }
   } catch (error) {

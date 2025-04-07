@@ -4,13 +4,15 @@ window.onload = async function () {
   let productTypeId = urlParams.get("productTypeId");
   let producttypename = urlParams.get("producttypename");
   let productId = urlParams.get("productId");
+  const productName = urlParams.get("productName");
+
   //   console.log(productTypeId);
   //   console.log(producttypename);
 
   //backBtn
   let backBtn = document.getElementById("back-menu-link");
 
-  backBtn.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}`;
+  backBtn.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}`;
 
   let productInstanceForm = document.getElementById("product-instance-form");
   //console.log(productInstanceForm);
