@@ -61,6 +61,7 @@ window.onload = async function () {
           let editBtn = document.getElementById(
             `edit-btn${result.productTypes[i].id}`
           );
+
           editBtn.addEventListener("click", async (e) => {
             let id = e.target.dataset.productTypeId;
             let productTypeName = e.target.dataset.productTypeName;
@@ -74,6 +75,7 @@ window.onload = async function () {
           let deleteBtn = document.getElementById(
             `del-btn${result.productTypes[i].id}`
           );
+
           deleteBtn.addEventListener("click", (e) => {
             console.log(e.target);
             let id = e.target.dataset.productTypeId;

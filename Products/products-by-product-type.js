@@ -20,7 +20,7 @@ window.onload = async function () {
 <h1 class="border p-3 text-white bg-info">${productTypeName}</h1>
     <div id="main-container">
       <div id="product-list" style="margin-bottom: 150px"></div>
-            <div id="back-menu-container">
+        <div id="back-menu-container">
         <a href="/ProductType/ProductTypes.html" id="back-menu-link">←</a>
       </div>
       <div id="add-new-container">
@@ -84,26 +84,40 @@ window.onload = async function () {
           }
 
           productDiv.appendChild(propsDiv);
-
+          console.log(result.product_List[i]);
           //product buttons
           let btnContainers = document.createElement("div");
+          btnContainers.classList.add("d-flex");
 
           //List btn
           let listLink = document.createElement("a");
           listLink.classList.add("fs-6");
           listLink.classList.add("btn");
           listLink.classList.add("btn-primary");
-          listLink.href = `../ProductInstances/Product-instances-by-product.html?id=${result.product_List[i].id}`;
+          listLink.classList.add("m-1");
+
+          listLink.href = `../ProductInstances/Product-instances-by-product.html?id=${result.product_List[i].id}&productTypeId=${id}&producttypename=${productTypeName}&productName=${result.product_List[i].productName}`;
           listLink.innerText = "List";
           btnContainers.appendChild(listLink);
 
           //edit btn
+          let editLink = document.createElement("a");
+          editLink.classList.add("fs-6");
+          editLink.classList.add("btn");
+          editLink.classList.add("btn-success");
+          editLink.classList.add("m-1");
+          editLink.classList.add("ms-auto");
+          editLink.href = `ProductEdit.html?id=${result.product_List[i].id}&productName=${result.product_List[i].productName}&productTypeName=${productTypeName}&productTypeId=${id}&productNumber=${result.product_List[i].productNumber}&price=${result.product_List[i].price}&concurrencyStamp=${result.product_List[i].concurrencyStamp}`;
+          editLink.innerText = "Edit";
+          btnContainers.appendChild(editLink);
 
           //delete btn
           let deleteLink = document.createElement("a");
           deleteLink.classList.add("fs-6");
           deleteLink.classList.add("btn");
           deleteLink.classList.add("btn-danger");
+          deleteLink.classList.add("m-1");
+
           deleteLink.href = `ProductDelete.html?id=${result.product_List[i].id}&productName=${result.product_List[i].productName}&productTypeName=${productTypeName}&productTypeId=${id}`;
           deleteLink.innerText = "Del";
           btnContainers.appendChild(deleteLink);
