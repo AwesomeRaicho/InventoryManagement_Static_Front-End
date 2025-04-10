@@ -110,10 +110,10 @@ window.onload = async function () {
       if (response.ok) {
         let result = await response.json();
         console.log(result);
-        window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}`;
+        window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}`;
       } else {
         // still redirect even if not OK
-        window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}`;
+        window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}`;
       }
     } catch (error) {
       console.log(error);

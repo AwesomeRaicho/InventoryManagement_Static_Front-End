@@ -1,3 +1,5 @@
+console.log("something in the way");
+
 window.onload = async function () {
   const urlParams = new URLSearchParams(window.location.search);
   const productTypeId = urlParams.get("productTypeId");
@@ -12,7 +14,7 @@ window.onload = async function () {
 
   try {
     let response = await fetch(
-      `https://localhost:7200/api/ProductInstance/by-product?ProductId=${id}&producttypename=${producttypename}`,
+      `https://localhost:7200/api/ProductInstance/by-product-sold?ProductId=${id}&producttypename=${producttypename}`,
       {
         method: "Get",
         headers: {
@@ -24,14 +26,10 @@ window.onload = async function () {
     body.innerHTML = "";
     body.innerHTML = `
   <body>
-  <h1 class="border p-3 text-white bg-info"> ${producttypename} > ${productName}</h1>
-  <a class="btn btn-warning text-white m-2 fw-bold" href="../ProductInstances/Product-instances-sold.html?id=${id}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}">Sold</a>
+  <h1 class="border p-3 text-white bg-info"> ${producttypename} > ${productName} [Sold]</h1>
     <div id="instances-list" class="p-2"></div>
       <div id="back-menu-container">
-        <a href="/Products/products-by-product-type.html?id=${productTypeId}&producttypename=${producttypename}" id="back-menu-link">←</a>
-      </div>
-      <div id="add-new-container">
-        <a href="Product-instances-create.html?productTypeId=${productTypeId}&producttypename=${producttypename}&productId=${id}&productName=${productName}" id="add-new-link">Add</a>
+        <a href="../ProductInstances/Product-instances-by-product.html?id=${id}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}" id="back-menu-link">←</a>
       </div>
   </body>
 `;
