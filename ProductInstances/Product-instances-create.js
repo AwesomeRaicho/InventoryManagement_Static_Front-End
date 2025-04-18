@@ -68,14 +68,19 @@ window.onload = async function () {
           }),
         }
       );
+      let result = await response.json();
 
       if (response.ok) {
-        let result = await response.json();
-
         console.log(result);
-        window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}`;
+        window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}`;
       }
-      window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}`;
+      console.log(result);
+      let errorList = document.getElementById("error-list");
+      let liError = document.createElement("li");
+      errorList.innerText = "";
+      liError.innerText = result.error;
+      errorList.appendChild(liError);
+      //window.location.href = `../ProductInstances/Product-instances-by-product.html?id=${productId}&productTypeId=${productTypeId}&producttypename=${producttypename}&productName=${productName}`;
     } catch (error) {
       console.log(error);
     }
